@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model package="lexrating" baseClass="xPDOObject" platform="mysql" defaultEngine="MyISAM" version="1.1">
+	<object class="Count" table="count" extends="xPDOObject">
+		<field key="ObjectID" dbtype="int" precision="11" attributes="unsigned" phptype="integer" null="false" index="pk" />
+		<field key="UserID" dbtype="int" precision="11" attributes="unsigned" phptype="integer" null="false" default="0" index="pk" />
+		<field key="UserIP" dbtype="varchar" precision="45" phptype="string" null="false" index="pk" />
+		<field key="Count" dbtype="varchar" precision="45" phptype="string" null="false" />
+		<field key="Extended" dbtype="text" phptype="string" null="true" />
+
+		<index alias="PRIMARY" name="PRIMARY" primary="true" unique="true" type="BTREE" >
+			<column key="ObjectID" length="" collation="A" null="false" />
+			<column key="UserID" length="" collation="A" null="false" />
+			<column key="UserIP" length="" collation="A" null="false" />
+		</index>
+                <aggregate alias="Objects" class="Objects" local="ObjectID" foreign="id" cardinality="one" owner="foreign" />
+	</object>
+	<object class="Objects" table="objects" extends="xPDOSimpleObject">
+		<field key="ObjectName" dbtype="varchar" precision="255" phptype="string" null="false" />
+		<field key="GroupName" dbtype="varchar" precision="255" phptype="string" null="true" />
+		<field key="UserGroups" dbtype="varchar" precision="255" phptype="string" null="true" />
+                <composite alias="Count" class="Count" local="id" foreign="ObjectID" cardinality="many" owner="local" />
+	</object>
+</model>

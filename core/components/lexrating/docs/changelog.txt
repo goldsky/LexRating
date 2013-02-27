@@ -1,0 +1,10 @@
+Changelog for LexRating
+
+1.0.0-beta-2
+=========================
+- added LexRatingQuipPostHook to make this snippet can be used inside the quip's commenting system
+- added 'Extended' field for additional identity of the Count's object
+
+1.0.0-beta-1
+=========================
+- initial release
