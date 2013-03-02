@@ -40,8 +40,10 @@
             <span class="quip-error">[[+error.recaptcha]]</span>
         </div>
 
+        <input type="hidden" name="lexrating_groupName" value="Overall Rating" />
+        <input type="hidden" name="lexrating_objectName" value="[[+thread]]" />
         <div>
-			<select id="rate" name="lexrating.quip">
+			<select id="rate" name="lexrating_quip">
 				<option value="0">0</option>
 				<option value="1">1</option>
 				<option value="2">2</option>

@@ -141,11 +141,12 @@ class LexRating {
 		}
 
 		// get a vote of the current user, if exists
+        $extended = isset($this->configs['extended']) && $this->configs['extended'] !== '' ? $this->configs['extended'] : null;
 		$exists = $this->modx->getObject('Count', array(
 			'ObjectID' => $id,
 			'UserID' => $this->modx->user->get('id'),
 			'UserIP' => $_SERVER['REMOTE_ADDR'],
-			'Extended' => $this->configs['extended']
+			'Extended' => $extended
 		));
 
 		if ($exists) {
@@ -215,7 +216,8 @@ class LexRating {
 					$this->configs['phsPrefix'] . 'id' => $x->get('ObjectID'),
 					$this->configs['phsPrefix'] . 'user.id' => $x->get('UserID'),
 					$this->configs['phsPrefix'] . 'user.ip' => $x->get('UserIP'),
-					$this->configs['phsPrefix'] . 'count' => $x->get('Count')
+					$this->configs['phsPrefix'] . 'count' => $x->get('Count'),
+					$this->configs['phsPrefix'] . 'extended' => $x->get('Extended')
 				);
 				$votersArray[] = $countArray;
 				$counter += $x->get('Count');
