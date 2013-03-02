@@ -37,7 +37,7 @@ set_time_limit(0);
 define('PKG_NAME', 'LexRating');
 define('PKG_NAME_LOWER', 'lexrating'); // work around the extra's namespace
 define('PKG_VERSION', '1.0.0');
-define('PKG_RELEASE', 'beta.2');
+define('PKG_RELEASE', 'beta.3');
 
 /* override with your own defines here (see build.config.sample.php) */
 require_once dirname(__FILE__) . '/build.config.php';
@@ -135,6 +135,9 @@ $modx->log(modX::LOG_LEVEL_INFO, 'Adding in PHP resolvers...');
 flush();
 $vehicle->resolve('php', array(
     'source' => $sources['resolvers'] . 'tables.resolver.php',
+));
+$vehicle->resolve('php',array(
+    'source' => $sources['resolvers'] . 'dbchanges.resolver.php',
 ));
 $builder->putVehicle($vehicle);
 $modx->log(modX::LOG_LEVEL_INFO, 'Adding in PHP resolvers done.');

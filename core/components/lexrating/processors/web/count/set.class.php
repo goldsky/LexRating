@@ -37,24 +37,28 @@ class LexRatingWebCountSetProcessor extends modObjectUpdateProcessor {
      */
     public function process() {
         $props = $this->getProperties();
-        $props['UserIP'] = strval($_SERVER['REMOTE_ADDR']);
-        $props['UserID'] = $this->modx->user->get('id');
+        $props['UserIP'] = isset($props['UserIP']) && $props['UserIP'] !== '' ?
+                $props['UserIP'] :
+                strval($_SERVER['REMOTE_ADDR']);
+        $props['UserID'] = isset($props['UserID']) && $props['UserID'] !== '' ?
+                $props['UserID'] :
+                $this->modx->user->get('id');
         $exists = $this->object->getMany('Count', array(
             'ObjectID' => $props['id'],
             'UserID' => $props['UserID'],
             'UserIP' => $props['UserIP']
-                ));
+        ));
         if ($exists) {
-            return $this->failure('exists');
+            return $this->failure($this->objectType . '_exists');
         }
         $countObj = $this->modx->newObject('Count');
         $countObj->set('ObjectID', $props['id']);
         $countObj->set('UserID', $props['UserID']);
         $countObj->set('UserIP', $props['UserIP']);
         $countObj->set('Count', $props['Count']);
-	if (isset($props['Extended'])) {
-	    $countObj->set('Extended', $props['Extended']);
-	}
+        if (isset($props['Extended'])) {
+            $countObj->set('Extended', $props['Extended']);
+        }
 
         $this->object->addMany($countObj);
 

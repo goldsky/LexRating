@@ -61,7 +61,7 @@ $chunks[3] = $modx->newObject('modChunk');
 $chunks[3]->fromArray(array(
     'id' => 3,
     'name' => 'lexrating.quip',
-    'description' => 'Template chunk for each item of quip\'s comment',
+    'description' => 'Template chunk to be used as additional chunk on each item of quip\'s comment',
     'snippet' => file_get_contents($sources['source_core'] . '/elements/chunks/lexrating.quip.chunk.tpl'),
     'properties' => '',
         ), '', true, true);
@@ -70,8 +70,17 @@ $chunks[4] = $modx->newObject('modChunk');
 $chunks[4]->fromArray(array(
     'id' => 4,
     'name' => 'lexrating.quipAddComment',
-    'description' => 'Template chunk for each item of quip\'s comment',
+    'description' => 'Template chunk for quip\'s &tplAddComment ',
     'snippet' => file_get_contents($sources['source_core'] . '/elements/chunks/lexrating.quipaddcomment.chunk.tpl'),
+    'properties' => '',
+        ), '', true, true);
+
+$chunks[5] = $modx->newObject('modChunk');
+$chunks[5]->fromArray(array(
+    'id' => 5,
+    'name' => 'lexrating.quipComment',
+    'description' => 'Template chunk for quip\'s &tplComment',
+    'snippet' => file_get_contents($sources['source_core'] . '/elements/chunks/lexrating.quipcomment.chunk.tpl'),
     'properties' => '',
         ), '', true, true);
 
