@@ -42,7 +42,7 @@ class LexRating {
 	 */
 	public function setConfigs(array $configs = array()) {
 		$basePath = $this->modx->getOption('core_path') . 'components/lexrating/';
-		$assetsUrl = $this->modx->getOption('assets_url') . 'components/lexrating/';
+		$assetsUrl = $this->modx->getOption('assets_url',$configs,'assets/') . 'components/lexrating/';
 		$this->configs = array_merge(array(
 			'basePath' => $basePath,
 			'corePath' => $basePath,
