@@ -92,6 +92,12 @@ $scriptProperties['loadjQuery'] = $modx->getOption('loadjQuery', $scriptProperti
  * @default lexrating.
  */
 $scriptProperties['phsPrefix'] = $modx->getOption('phsPrefix', $scriptProperties, 'lexrating.');
+/**
+ * Option to defer JavaScript
+ * @var     boolean 0 | 1
+ * @default 0
+ */
+$scriptProperties['scriptsBottom'] = $modx->getOption('scriptsBottom', $scriptProperties, 0);
 
 $defaultLexRatingCorePath = $modx->getOption('core_path') . 'components/lexrating/';
 $lexratingCorePath = $modx->getOption('lexrating.core_path', null, $defaultLexRatingCorePath);
@@ -107,11 +113,11 @@ if (!empty($scriptProperties['css'])) {
     $modx->regClientCSS($scriptProperties['css']);
 }
 if (!empty($scriptProperties['loadjQuery'])) {
-    $modx->regClientStartupScript('//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js');
+    (!empty($scriptProperties['scriptsBottom'])) ? $modx->regClientScript('//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js') : $modx->regClientStartupScript('//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js');
 }
-$modx->regClientStartupScript("$assets_url/components/lexrating/vendors/rateit/src/jquery.rateit.min.js");
+(!empty($scriptProperties['scriptsBottom'])) ? $modx->regClientScript("$assets_url/components/lexrating/vendors/rateit/src/jquery.rateit.min.js") : $modx->regClientStartupScript("$assets_url/components/lexrating/vendors/rateit/src/jquery.rateit.min.js");
 if (!empty($scriptProperties['js'])) {
-    $modx->regClientStartupScript($scriptProperties['js']);
+    (!empty($scriptProperties['scriptsBottom'])) ? $modx->regClientScript($scriptProperties['js']) : $modx->regClientStartupScript($scriptProperties['js']);
 }
 
 $phs = $lexrating->getRating();

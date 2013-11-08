@@ -126,4 +126,16 @@
 		"area": "templates",
 		"area_trans": "Templates",
 		"menu": null
+	}, {
+		"name": "scriptsBottom",
+		"desc": "lexrating.prop_scriptsBottom_desc",
+		"xtype": "combo-boolean",
+		"options": [],
+		"value": false,
+		"lexicon": "lexrating:properties",
+		"overridden": false,
+		"desc_trans": "Optionally defer JavaScript",
+		"area": "",
+		"area_trans": "",
+		"menu": null
 	}]

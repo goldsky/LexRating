@@ -45,3 +45,4 @@ $_lang['lexrating.prop_tplListWrapper_desc'] = 'Template chunk for wrapper';
 $_lang['lexrating.prop_tplListItem_desc'] = 'Template chunk for each item';
 $_lang['lexrating.prop_extended_desc'] = 'Get a particular rating with this specified Extended value of the Count object';
 $_lang['lexrating.prop_readOnly_desc'] = 'Is the rating for read only?';
+$_lang['lexrating.prop_scriptsBottom_desc'] = 'Include JavaScript at bottom of page';
