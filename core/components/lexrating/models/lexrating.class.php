@@ -95,6 +95,8 @@ class LexRating {
 		$results[$this->configs['phsPrefix'] . 'name'] = $this->configs['name'];
 		$results[$this->configs['phsPrefix'] . 'group'] = $this->configs['group'];
 		$results[$this->configs['phsPrefix'] . 'id'] = $id;
+		$results[$this->configs['phsPrefix'] . 'extended'] = $this->configs['extended'];
+		$results[$this->configs['phsPrefix'] . 'resetable'] = $this->configs['resetable'];
 		$results[$this->configs['phsPrefix'] . 'initialAjax'] = $this->configs['initialAjax'];
 
 		if (!empty($this->configs['initialAjax'])) {

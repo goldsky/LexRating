@@ -23,6 +23,18 @@
 		"area_trans": "",
 		"menu": null
 	}, {
+		"name": "resetable",
+		"desc": "lexrating.prop_resetable_desc",
+		"xtype": "combo-boolean",
+		"options": [],
+		"value": true,
+		"lexicon": "lexrating:properties",
+		"overridden": false,
+		"desc_trans": "Allow or disallow resetting rating.",
+		"area": "",
+		"area_trans": "",
+		"menu": null
+		}, {
 		"name": "group",
 		"desc": "lexrating.prop_group_desc",
 		"xtype": "textfield",
@@ -142,4 +154,4 @@
 		"area": "",
 		"area_trans": "",
 		"menu": null
-		}]
+	}]

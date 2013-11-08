@@ -54,6 +54,14 @@ $scriptProperties['userGroups'] = $modx->getOption('userGroups', $scriptProperti
  */
 $scriptProperties['extended'] = $modx->getOption('extended', $scriptProperties);
 /**
+ * Allow or disallow resetting rating
+ * @var     boolean 0 | 1
+ * @default 1
+ * @since   1.1.0-beta.3
+ * @example {"quipReplyId":"qcom29"}	quip's reply id
+ */
+$scriptProperties['resetable'] = $modx->getOption('resetable', $scriptProperties, 1);
+/**
  * Load the values using Ajax
  * @var     bool    0 | 1
  * @default 1
