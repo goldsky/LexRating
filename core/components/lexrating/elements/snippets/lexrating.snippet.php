@@ -79,7 +79,7 @@ $scriptProperties['css'] = $modx->getOption('css', $scriptProperties, "$assets_u
 /**
  * Javascript filename
  */
-$scriptProperties['js'] = $modx->getOption('js', $scriptProperties, 'assets/components/lexrating/default/js/lexrating.js');
+$scriptProperties['js'] = $modx->getOption('js', $scriptProperties, "$assets_url/components/lexrating/default/js/lexrating.js");
 /**
  * Auto load jQuery
  * @var     boolean 0 | 1

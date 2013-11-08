@@ -66,11 +66,12 @@ $scriptProperties['tplListItem'] = $modx->getOption('tplListItem', $scriptProper
 /**
  * CSS filename
  */
-$scriptProperties['css'] = $modx->getOption('css', $scriptProperties, 'assets/components/lexrating/default/css/lexrating.css');
+$assets_url = trim($modx->getOption('assets_url',$scriptProperties,'assets/'),'/');
+$scriptProperties['css'] = $modx->getOption('css', $scriptProperties, "$assets_url/components/lexrating/default/css/lexrating.css");
 /**
  * Javascript filename
  */
-$scriptProperties['js'] = $modx->getOption('js', $scriptProperties, 'assets/components/lexrating/default/js/lexrating.js');
+$scriptProperties['js'] = $modx->getOption('js', $scriptProperties, "$assets_url/components/lexrating/default/js/lexrating.js");
 /**
  * Auto load jQuery
  * @var     boolean 0 | 1
@@ -106,7 +107,7 @@ if (!empty($scriptProperties['css'])) {
 if (!empty($scriptProperties['loadjQuery'])) {
     (!empty($scriptProperties['scriptsBottom'])) ? $modx->regClientScript('//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js') : $modx->regClientStartupScript('//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js');
 }
-(!empty($scriptProperties['scriptsBottom'])) ? $modx->regClientScript('assets/components/lexrating/vendors/rateit/src/jquery.rateit.min.js') : $modx->regClientStartupScript('assets/components/lexrating/vendors/rateit/src/jquery.rateit.min.js');
+(!empty($scriptProperties['scriptsBottom'])) ? $modx->regClientScript("$assets_url/components/lexrating/vendors/rateit/src/jquery.rateit.min.js") : $modx->regClientStartupScript("$assets_url/components/lexrating/vendors/rateit/src/jquery.rateit.min.js");
 if (!empty($scriptProperties['js'])) {
     (!empty($scriptProperties['scriptsBottom'])) ? $modx->regClientScript($scriptProperties['js']) : $modx->regClientStartupScript($scriptProperties['js']);
 }
