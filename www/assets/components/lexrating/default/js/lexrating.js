@@ -3,7 +3,7 @@ function getRating(objId, holder) {
         return;
     }
     $.ajaxSetup({cache: false});
-    $.get('assets/components/lexrating/connector.php',{
+    $.get(($('.lexrating-wrapper').data('connector-path') || 'assets/components/') + 'lexrating/connector.php',{
         action: 'web/count/get',
         id: objId
     }, function(data) {
@@ -26,7 +26,7 @@ $(document).ready(function(){
         var extended = ri.data('extended');
         ri.rateit('readonly', true);
         $.ajax({
-            url: $('.lexrating-wrapper').data('connector') || 'assets/components/lexrating/connector.php',
+            url: ($('.lexrating-wrapper').data('connector-path') || 'assets/components/') + 'lexrating/connector.php',
             data: {
                 action: 'web/count/set',
                 id: objID,
