@@ -1,5 +1,5 @@
 
-<div class="lexrating-wrapper" data-connector="assets/components/lexrating/connector.php">
+<div class="lexrating-wrapper">
     [[+lexrating.name]]
     <div
         class="rateit"
