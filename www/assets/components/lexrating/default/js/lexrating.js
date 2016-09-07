@@ -7,7 +7,7 @@ function getRating(objId, holder) {
         action: 'web/count/get',
         id: objId
     }, function(data) {
-        var response = JSON.parse(data);
+        var response = (typeof data === 'object') ? data : JSON.parse(data);
         if (response.object) {
             $(holder).rateit('value', response.object.value);
             var readonly = (response.object.allowedToVote === true) ? false : true;
